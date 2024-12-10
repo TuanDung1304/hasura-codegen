@@ -1,0 +1,15 @@
+query TestGetUserById($id: Int!) {
+  users_by_pk(id: $id) {
+    id
+    name
+    country
+    todos(limit: 5, where: { id: { _gt: 3 } }) {
+      id
+      title
+      user {
+        id
+        password
+      }
+    }
+  }
+}
